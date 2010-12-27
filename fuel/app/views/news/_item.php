@@ -18,7 +18,11 @@ $titleParts = array(
 	<?php echo $newsData->story ?>
 	</div>
 	<span class="comment_count">0 comments</span> <a class="voice" href="/news/15620">voice your opinion now!</a> <span style="font-size:11px;font-weight:bold">::</span> <span class="admin_links"><a class="admin_link" href="/news/edit/15620">edit</a> || <a class="admin_link"  href="/news/delete/15620">delete</a></span><br/>
-			<span class="tags"><a class="tagged_with" href="/tag/domain">domain</a> <a class="tagged_with" href="/tag/distribution">distribution</a> <a class="tagged_with" href="/tag/city">city</a> <a class="tagged_with" href="/tag/statistics">statistics</a> <a class="tagged_with" href="/tag/godaddy">godaddy</a> </span><br/><br/>
+	<span class="tags">
+		<?php foreach($newsData->news_tags as $tag): ?>
+			<a class="tagged_with" href="/tag/<?php echo $tag->tag?>"><?php echo $tag->tag?></a>
+		<?php endforeach; ?>
+	</span><br/><br/>
 
 		</div><br/>
 
