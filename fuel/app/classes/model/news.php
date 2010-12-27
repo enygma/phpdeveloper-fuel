@@ -44,7 +44,13 @@ class News extends ActiveRecord\Model {
 
 	public function getNewsByTag($tag)
 	{
-		
+		$results = $this->find('all',array(
+			'select'	=> array('title','story','date','ID'),
+			'limit'		=> 10,
+			'order'		=> array('date','desc'),
+			'include'	=> array('news_tags')
+		));
+		return $results;
 	}
 }
 
