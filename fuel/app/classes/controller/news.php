@@ -8,13 +8,14 @@ class News extends Template {
 
         public function action_index($newsId = null)
         {
-		$newsResults = \Fuel\App\Model\News::getLatestNews();
-		$renderedNews = array();
-		foreach($newsResults as $newsItem){
-			$renderedNews[]=View::factory('news/_item',array('newsData'=>$newsItem))->render();
-		}
+		$News = new \Fuel\App\Model\News;
 
-                $this->render('news/index',array('renderedNews'=>$renderedNews));
+		if($this->param('newsid')){
+			$newsResults = array($News->getNewsDetail($this->param('newsid')));
+		}else{
+			$newsResults = $News->getLatestNews();
+		}
+		$this->render('news/_news-list',array('newsResults'=>$newsResults));
         }
 
 }
