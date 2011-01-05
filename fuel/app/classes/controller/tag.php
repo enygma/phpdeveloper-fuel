@@ -1,8 +1,9 @@
 <?php
 
-namespace Fuel\App\Controller;
+#namespace Fuel\App\Controller;
+use Fuel\App\Model as Models;
 
-class Tag extends Template 
+class Controller_Tag extends Controller_Template 
 {
 
 	public $_default_action = 'index';
@@ -10,10 +11,10 @@ class Tag extends Template
 	public function action_index()
 	{
 		$tag = $this->param('tagname');
-		$News = new \Fuel\App\Model\News;
+		$News = new Model_News;
 
 		$newsResults = $News->getNewsByTag($tag);	
-		$this->render('news/_news-list',array('newsResults'=>$newsResults));
+		$this->template->content = View::factory('news/_news-list',array('newsResults'=>$newsResults));
 	}
 
 }
