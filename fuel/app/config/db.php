@@ -22,8 +22,8 @@ return array(
 		'connection'	=> array(
 			'hostname'   => 'localhost',
 			'database'   => 'phpdev',
-			'username'   => 'ccornutt',
-			'password'   => 'zaphod42',
+			'username'   => 'bar',
+			'password'   => 'foo',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',
