@@ -2,7 +2,9 @@
 
 namespace Fuel\App\Model;
 
-class Tags extends ActiveRecord\Model
+use ActiveRecord;
+
+class Model_Tags extends ActiveRecord\Model
 {
 
 }
